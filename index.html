@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Zoo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #4A7C3B;
+      --dark-green: #395F4D;
+      --bright-green: #5DBB4A;
+      --cream: #EFDEDE;
+      --orange: #F4C195;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--green);
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Subtle texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .panda {
+      width: min(280px, 62vw);
+      height: auto;
+      filter: drop-shadow(0 12px 32px rgba(0,0,0,0.18));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.8rem, 10vw, 5rem);
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      margin-top: 12px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    }
+
+    .tagline {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      color: rgba(239, 222, 222, 0.75);
+      margin-top: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .badge {
+      margin-top: 36px;
+      background: var(--cream);
+      color: var(--dark-green);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      padding: 10px 28px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      animation: fadeUp 0.9s 0.3s ease both;
+    }
+
+    .paw-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+      animation: fadeUp 0.9s 0.5s ease both;
+    }
+
+    .paw {
+      font-size: 1.1rem;
+      opacity: 0.5;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20px;
+      font-size: 0.78rem;
+      color: rgba(239,222,222,0.45);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    footer a {
+      color: rgba(239,222,222,0.45);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(239,222,222,0.2);
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: rgba(239,222,222,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <!-- Replace panda-head.png with your actual panda head image filename -->
+    <img class="panda" src="panda-head.png" alt="Focus Zoo Panda" />
+    <h1>FOCUS ZOO</h1>
+    <p class="tagline">Stay focused. Collect friends.</p>
+    <div class="badge">🍃 Coming soon to the App Store</div>
+    <div class="paw-row">
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+    </div>
+  </div>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</body>
+</html>
